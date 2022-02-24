@@ -6,7 +6,7 @@ const { autoUpdater } = require('electron-updater');
 const initSettingsStoreEvents = () => {
 
   ipcMain.on(SETTINGS_STORE_EVENTS.GET_SETTINGS_DATA, (e) => {
-    e.returnValue = settingsStore.get('settings');
+    e.returnValue = settingsStore.get('settings', { 'proxy_setting': 'none' });
   });
 
   ipcMain.on(SETTINGS_STORE_EVENTS.UPDATE_SETTINGS_DATA, (e, value) => {
